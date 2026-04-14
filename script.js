@@ -30,42 +30,68 @@ function showDate()
         }        
 function validatePassword()     
             {
-                const pw = document.querySelector('input[name="password"]').value;
-                const cpw = document.querySelector('input[name="confirm_password"]').value;
-                const userId = document.querySelector('input[name="user_id"]').value.toLowerCase();
+                const pw = document.getElementById("password").value;
+                const cpw = document.getElementById("confirm_password").value;
+                const userId = document.getElementById("user_id").value.toLowerCase();
                 const errorBox = document.getElementById("passwordError");
 
                 errorBox.innerText = "";
+                errorBox.style.color = "red";
 
-                        if (!pw || !cpw)
-                        {
-                                errorBox.style.color = "red";  
-                                errorBox.innerText = ("Password fields cannot be empty.");
-                                  return false;      
-                        }
-                        if (pw !== cpw) 
-                        {
-                                errorBox.style.color = "red";
-                                errorBox.innerText = ("Passwords do not match.");
-                                  return false;
-                        }
-                        if (pw.toLowerCase() === userId)
-                        {
-                                errorBox.style.color = "red";
-                                errorBox.innerText = ("Password cannot contain your User ID.");
-                                  return false;
-                        }
-                        if (userId && pw.toLowerCase().includes(userId))
-                        {
-                                errorBox.style.color = "red";
-                                errorBox.innerText = ("Password cannot contain your User ID.");
-                                  return false;
-                        }
-                    
-                errorBox.style.color = "green";
-                errorBox.innerText = "Password match";
-                return true;
+                  if (!pw || !cpw)
+                    {
+                      errorBox.style.color = "red";  
+                      errorBox.innerText = ("Password fields cannot be empty.");
+                      return false;      
+                    }
+              
+                    if (pw.length < 8) 
+                    {
+                      errorBox.innerText = "Password must be at least 8 characters.";
+                      return false;
+                    }
+
+                    if (!/[A-Z]/.test(pw))
+                    {
+                      errorBox.innerText = "Password must include at least one uppercase letter.";
+                      return false;
+                    }
+
+                    if (!/[a-z]/.test(pw))
+                    {
+                      errorBox.innerText = "Password must include at least one lowercase letter.";
+                      return false;
+                    }
+
+                    if (!/[0-9]/.test(pw))
+                    {
+                      errorBox.innerText = "Password must include at least one number.";
+                      return false;
+                    }
+
+                    if (pw.toLowerCase() === userId)
+                    {
+                      errorBox.innerText = "Password cannot be the same as your User ID.";
+                      return false;
+                    }
+
+                    if (userId && pw.toLowerCase().includes(userId))
+                    {
+                      errorBox.innerText = "Password cannot contain your User ID.";
+                      return false;
+                    }
+
+                    if (pw !== cpw)
+                    {
+                      errorBox.innerText = "Passwords do not match.";
+                      return false;
+                    }
+
+                    errorBox.style.color = "green";
+                    errorBox.innerText = "Valid password";
+                    return true;
             }
+
 function formatDOB()
          {
                  return true;
