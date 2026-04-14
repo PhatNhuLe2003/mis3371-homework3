@@ -203,7 +203,11 @@ These java program enables user have a review sheet to display user what informs
     <td colspan="2">Confirm Password <span class="required">*</span></td>
 </tr>
 <tr>
-    <td><input type="text" name="user_id" id="user_id" maxlength="20" required
+    <td><input type="text" name="user_id" id="user_id"
+               oninput="validateUserId()"
+               onblur="validateUserId()"             
+               maxlength="20" required
+               maxlength="20" required
                pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,19}$"
                title="User ID must be 5-20 characters, letters and numbers only (no spaces)">
         <div id="userIdError" class="error-message"></div>
