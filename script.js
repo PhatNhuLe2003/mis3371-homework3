@@ -68,7 +68,13 @@ function validatePassword()
                       errorBox.innerText = "Password must include at least one number.";
                       return false;
                     }
-
+                    
+                    if (!/[@$!%*?&]/.test(pw))
+                    {
+                      errorBox.innerText = "Password must include at least one special character.";
+                      return false;
+                    }
+              
                     if (pw.toLowerCase() === userId)
                     {
                       errorBox.innerText = "Password cannot be the same as your User ID.";
@@ -98,33 +104,42 @@ function formatDOB()
          }        
      
 function validateDOB()
-        {
-                const dobInput = document.getElementById("dob").value;
-                if (!dobInput) 
-                {
-                        alert("Please enter your date of birth.");
-                        return false;
-                }
-                
+{
+  const dobInput = document.getElementById("dob").value;
+  const errorBox = document.getElementById("dobError");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
 
-                const dob = new Date(dobInput);
-                const today = new Date();
-                today.setHours(0,0,0,0);
-                const minDate = new Date();
-                minDate.setFullYear(today.getFullYear() - 120);
+    if (dobInput === "")
+    {
+      errorBox.innerText = "Date of birth is required.";
+      return false;
+    }
 
-                if (dob < minDate)
-                        {
-                                alert("Date of birth cannot be more than 120 years ago.");
-                                return false;
-                        }
-                if (dob > today)
-                        {
-                                alert("Date of birth cannot be in the future.");
-                                return false;
-                        }
-                return true;
-        }
+  const dob = new Date(dobInput);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const minDate = new Date();
+  minDate.setHours(0, 0, 0, 0);
+  minDate.setFullYear(today.getFullYear() - 120);
+
+    if (dob < minDate)
+    {
+      errorBox.innerText = "Date of birth cannot be more than 120 years ago.";
+      return false;
+    }
+
+    if (dob > today)
+    {
+      errorBox.innerText = "Date of birth cannot be in the future.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid date of birth";
+    return true;
+}
 
 function validateFirstName()
 {
