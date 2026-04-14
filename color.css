@@ -162,5 +162,11 @@ input[type="button"]:hover
     background-color: #6f9cd6;
   }
 
-
+.error-message
+  {
+    min-height: 16px;
+    font-size: 12px;
+    color: red;
+    margin-top: 2px;
+  }
 
