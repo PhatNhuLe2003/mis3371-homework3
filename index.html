@@ -189,6 +189,8 @@ These java program enables user have a review sheet to display user what informs
         <div id="emailError" class="error-message"></div>
     </td>
     <td colspan="3"><input type="tel" name="phone" id="phone"
+                            oninput="validatePhone()"
+                            onblur="validatePhone()"
                             placeholder="123-456-7890"
                             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                             maxlength="12"
