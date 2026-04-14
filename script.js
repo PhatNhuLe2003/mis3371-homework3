@@ -100,6 +100,77 @@ function validateDOB()
                 return true;
         }
 
+function validateFirstName()
+{
+  const first = document.getElementById("first_name").value.trim();
+  const errorBox = document.getElementById("firstNameError");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (first === "")
+    {
+      errorBox.innerText = "First name is required.";
+      return false;
+    }
+
+    if (!/^[A-Za-z'-]{1,30}$/.test(first))
+    {
+      errorBox.innerText = "First name must be 1-30 letters only.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid first name";
+    return true;
+}
+
+function validateMiddleInitial()
+{
+  const mi = document.getElementById("middle_initial").value.trim();
+  const errorBox = document.getElementById("middleInitialError");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (mi === "")
+    {
+      return true;
+    }
+
+    if (!/^[A-Za-z]$/.test(mi))
+    {
+      errorBox.innerText = "Middle initial must be one letter.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid";
+    return true;
+}
+
+function validateLastName()
+{
+  const last = document.getElementById("last_name").value.trim();
+  const errorBox = document.getElementById("lastNameError");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (last === "")
+    {
+      errorBox.innerText = "Last name is required.";
+      return false;
+    }
+
+    if (!/^[A-Za-z'-]{1,30}$/.test(last))
+    {
+      errorBox.innerText = "Last name must be 1-30 letters only.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid last name";
+    return true;
+}
+  
 function validateUserId()
 {
   const userId = document.getElementById("user_id").value;
@@ -210,7 +281,10 @@ function validateSSN()
 
 function validateForm()
         {
-                return validateUserId() 
+                return validateFirstName()
+                  && validateMiddleInitial()
+                  && validateLastName()
+                  && validateUserId()
                   && validateEmail()  
                   && validatePhone()
                   && validateSSN()
