@@ -99,9 +99,94 @@ function validateDOB()
                         }
                 return true;
         }
+
+function validateUserId()
+{
+  const userId = document.getElementById("user_id").value;
+  const errorBox = document.getElementById("userIdError");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+  
+    if (/^[0-9]/.test(userId))
+    {
+      errorBox.innerText = "User ID cannot start with a number.";
+      return false;
+    }
+  
+    if (userId.length < 5 || userId.length > 20)
+    {
+      errorBox.innerText = "User ID must be between 5 and 20 characters.";
+      return false;
+    }
+
+    if (/\s/.test(userId))
+    {
+      errorBox.innerText = "User ID cannot contain spaces.";
+      return false;
+    }
+
+    if (!/^[a-zA-Z0-9_-]+$/.test(userId))
+    {
+      errorBox.innerText = "Only letters, numbers, dash (-), and underscore (_) allowed.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid User ID";
+    return true;
+}
+
+function validateEmail()
+{
+  const email = document.getElementById("email").value.trim().toLowerCase();
+  const errorBox = document.getElementById("emailError");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (email === "")
+    {
+      errorBox.innerText = "Email address is required.";
+      return false;
+    }
+
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/.test(email))
+    {
+      errorBox.innerText = "Enter a valid email address.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid email address";
+    return true;
+}
+
+function validatePhone()
+{
+  const phone = document.getElementById("phone").value.trim();
+  const errorBox = document.getElementById("phoneError");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (phone === "")
+    {
+      errorBox.innerText = "Phone number is required.";
+      return false;
+    }
+
+    if (!/^\d{3}-\d{3}-\d{4}$/.test(phone))
+    {
+      errorBox.innerText = "Enter a valid phone number (123-456-7890).";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid phone number";
+    return true;
+}
+
 function validateForm()
         {
-                return validateUserId() && validatePassword() && validateDOB();
+                return validateUserId() && validateEmail() && validatePhone() && validatePassword() && validateDOB();
         }
 window.onload = function()
 {
@@ -204,40 +289,3 @@ function updatePainValue()
         const value = document.getElementById("pain").value;
         document.getElementById("painValue").innerText = value;
 }
-
-function validateUserId()
-{
-  const userId = document.getElementById("user_id").value;
-  const errorBox = document.getElementById("userIdError");
-  errorBox.innerText = "";
-  errorBox.style.color = "red";
-  
-    if (/^[0-9]/.test(userId))
-    {
-      errorBox.innerText = "User ID cannot start with a number.";
-      return false;
-    }
-  
-    if (userId.length < 5 || userId.length > 20)
-    {
-      errorBox.innerText = "User ID must be between 5 and 20 characters.";
-      return false;
-    }
-
-    if (/\s/.test(userId))
-    {
-      errorBox.innerText = "User ID cannot contain spaces.";
-      return false;
-    }
-
-    if (!/^[a-zA-Z0-9_-]+$/.test(userId))
-    {
-      errorBox.innerText = "Only letters, numbers, dash (-), and underscore (_) allowed.";
-      return false;
-    }
-
-    errorBox.style.color = "green";
-    errorBox.innerText = "Valid User ID";
-    return true;
-}
-    
