@@ -46,21 +46,24 @@ These java program enables user have a review sheet to display user what informs
     
 <tr>
     <td colspan="2">
-        <input type="text" name="first_name" maxlength="30" required
+        <input type="text" name="first_name" id="first_name" maxlength="30" required
             pattern="[A-Za-z'-]{1,30}"
             title="Enter 1-30 characters. Letters, apostrophes, and dashes only">
+        <div id="firstNameError" class="error-message"></div>
     </td>
     
      <td colspan="1">
-        <input type="text" name="middle_initial" maxlength="1"
+        <input type="text" name="middle_initial" id="middle_initial" maxlength="1"
             pattern="[A-Za-z]?"
             title="Enter one letter only">
+         <div id="middleInitialError" class="error-message"></div>
     </td>
     
   <td colspan="3">
-    <input type="text" name="last_name" maxlength="30" required
-        pattern="[A-Za-z0-9'-]{1,30}"
+    <input type="text" name="last_name" id="last_name" maxlength="30" required
+        pattern="[A-Za-z'-]{1,30}"
         title="Enter 1-30 characters, Letters, apostrophes, and dashes, and suffix numbers allowed">
+      <div id="lastNameError" class="error-message"></div>
   </td>
 </tr>
 <!-- DOB / SSN -->
@@ -74,6 +77,7 @@ These java program enables user have a review sheet to display user what informs
                 min="1900-01-01"
                 max="2026-12-31"
                 title="Select a valid birth date">
+        <div id="dobError" class="error-message"></div>
     </td>
     <td colspan="3">
         <input type="password" name="ssn" id="ssn"
@@ -81,6 +85,7 @@ These java program enables user have a review sheet to display user what informs
             pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}"
             title="Format: 123-45-6789" 
             required>
+        <div id="ssnError" class="error-message"></div>
     </td>
 </tr>
 
@@ -93,17 +98,19 @@ These java program enables user have a review sheet to display user what informs
 </tr>
 <tr>
     <td colspan="3">
-        <input type="text" name="address1" maxlength="30" required
+        <input type="text" name="address1" id="address1" maxlength="30" required
                pattern="[A-Za-z0-9\s\.\-#]{5,30}"
                title="5-30 characters. Letters, numbers, spaces, ., -, # allowed">
+        <div id="address1Error" class="error-message"></div>
     </td>
     <td>
-        <input type="text" name="city1" maxlength="30" required
+        <input type="text" name="city1" id="city1" maxlength="30" required
                pattern="[A-Za-z\s]{2,30}" 
-               title="City must be 2-30 letters only" >
+               title="City must be 2-30 letters only">
+        <div id="city1Error" class="error-message"></div>
     </td>
     <td>
-        <select name="state1" required>
+        <select name="state1" id="state1" required>
             <option value="" selected disabled>Select</option>
                 <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
                 <option>CA</option><option>CO</option><option>CT</option><option>DE</option>
@@ -119,11 +126,14 @@ These java program enables user have a review sheet to display user what informs
                 <option>VT</option><option>VA</option><option>WA</option><option>WV</option>
                 <option>WI</option><option>WY</option>
         </select>
+        <div id="state1Error" class="error-message"></div>
     </td>
-    <td><input type="text" name="zip1" maxlength="10"
+    <td><input type="text" name="zip1" id="zip1" maxlength="10"
                 pattern="[0-9]{5}(-[0-9]{4})?"
                 title="Enter 5-digit ZIP or ZIP+4"
-                required></td>
+                required>
+        <div id="zip1Error" class="error-message"></div>
+    </td>
 </tr>
 
 <tr>
@@ -170,17 +180,20 @@ These java program enables user have a review sheet to display user what informs
     <td colspan="3">Phone Number <span class="required">*</span></td>
 </tr>
 <tr>
-    <td colspan="2"><input type="email" name="email" required
+    <td colspan="2"><input type="email" name="email" id="email" required
                             maxlength="50"
                             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}"
                             title="Enter a valid email (example: name@email.com)">
+        <div id="emailError" class="error-message"></div>
     </td>
-    <td colspan="3"><input type="tel" name="phone"
+    <td colspan="3"><input type="tel" name="phone" id="phone"
                             placeholder="123-456-7890"
                             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                             maxlength="12"
                             title="Format: 123-456-7890"
-                            required></td>
+                            required>
+        <div id="phoneError" class="error-message"></div>
+    </td>   
 </tr>
 
 <!-- LOGIN -->
@@ -190,17 +203,18 @@ These java program enables user have a review sheet to display user what informs
     <td colspan="2">Confirm Password <span class="required">*</span></td>
 </tr>
 <tr>
-    <td><input type="text" name="user_id" maxlength="20" required
+    <td><input type="text" name="user_id" id="user_id" maxlength="20" required
                pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,19}$"
-               title="User ID must be 5-20 characters, letters and numbers only (no spaces)">        
+               title="User ID must be 5-20 characters, letters and numbers only (no spaces)">
+        <div id="userIdError" class="error-message"></div>
     </td>
     
-    <td colspan="2"><input type="password" name="password" required
+    <td colspan="2"><input type="password" name="password" id="password" required
                            pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$!%*?&]).{8,20}$" 
                            title="Password must be 8-20 characters. Must include uppercase, lowercase, number, and special character"                       
                            oninput="validatePassword()">
     </td>
-    <td colspan="2"><input type="password" name="confirm_password" required
+    <td colspan="2"><input type="password" name="confirm_password" id="confirm_password" required
                            oninput="validatePassword()">
         
         <div id="passwordError" style="color:red; font-size:12px;"></div>
@@ -265,7 +279,8 @@ These java program enables user have a review sheet to display user what informs
 
     <td colspan="3" class="reason-cell">
         <strong class="section-title">Reason for Visit <span class="required">*</span></strong><br>
-        <textarea class="fixed-textarea" name="reason_for_visit" required></textarea>
+        <textarea class="fixed-textarea" name="reason_for_visit" id="reason_for_visit" required></textarea>
+        <div id="reasonError" class="error-message"></div>
     </td>
 </tr>
 
