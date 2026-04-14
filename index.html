@@ -143,7 +143,7 @@ These java program enables user have a review sheet to display user what informs
                 <option>OR</option><option>PA</option><option>RI</option><option>SC</option>
                 <option>SD</option><option>TN</option><option>TX</option><option>UT</option>
                 <option>VT</option><option>VA</option><option>WA</option><option>WV</option>
-                <option>WI</option><option>WY</option>
+                <option>WI</option><option>WY</option><option>DC</option><option>PR</option>
         </select>
         <div id="state1Error" class="error-message"></div>
     </td>
@@ -190,7 +190,7 @@ These java program enables user have a review sheet to display user what informs
                 <option>OR</option><option>PA</option><option>RI</option><option>SC</option>
                 <option>SD</option><option>TN</option><option>TX</option><option>UT</option>
                 <option>VT</option><option>VA</option><option>WA</option><option>WV</option>
-                <option>WI</option><option>WY</option>
+                <option>WI</option><option>WY</option><option>DC</option><option>PR</option>
         </select>
     </td>
     <td><input type="text" maxlength="10"></td>
@@ -309,7 +309,10 @@ These java program enables user have a review sheet to display user what informs
 
     <td colspan="3" class="reason-cell">
         <strong class="section-title">Reason for Visit <span class="required">*</span></strong><br>
-        <textarea class="fixed-textarea" name="reason_for_visit" id="reason_for_visit" required></textarea>
+        <textarea class="fixed-textarea" name="reason_for_visit" id="reason_for_visit"
+                  oninput="validateReason()"
+                  onblur="validateReason()"  
+                  required></textarea>
         <div id="reasonError" class="error-message"></div>
     </td>
 </tr>
