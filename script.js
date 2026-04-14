@@ -98,11 +98,6 @@ function validatePassword()
                     return true;
             }
 
-function formatDOB()
-         {
-                 return true;
-         }        
-     
 function validateDOB()
 {
   const dobInput = document.getElementById("dob").value;
@@ -426,6 +421,19 @@ function validateForm()
                   && validatePassword() 
                   && validateDOB();
         }
+
+function showValidate()
+{
+  if (validateForm())
+  {
+    document.querySelector('input[type="submit"]').style.display = "inline-block";
+  }
+  else
+  {
+    document.querySelector('input[type="submit"]').style.display = "none";
+  }
+}
+  
 window.onload = function()
 {
         showDate();
