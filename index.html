@@ -47,6 +47,8 @@ These java program enables user have a review sheet to display user what informs
 <tr>
     <td colspan="2">
         <input type="text" name="first_name" id="first_name" maxlength="30" required
+            oninput="validateFirstName()"
+            onblur="validateFirstName()"
             pattern="[A-Za-z'-]{1,30}"
             title="Enter 1-30 characters. Letters, apostrophes, and dashes only">
         <div id="firstNameError" class="error-message"></div>
@@ -54,6 +56,8 @@ These java program enables user have a review sheet to display user what informs
     
      <td colspan="1">
         <input type="text" name="middle_initial" id="middle_initial" maxlength="1"
+            oninput="validateMiddleInitial()"
+            onblur="validateMiddleInitial()"
             pattern="[A-Za-z]?"
             title="Enter one letter only">
          <div id="middleInitialError" class="error-message"></div>
@@ -61,6 +65,8 @@ These java program enables user have a review sheet to display user what informs
     
   <td colspan="3">
     <input type="text" name="last_name" id="last_name" maxlength="30" required
+        oninput="validateLastName()"
+        onblur="validateLastName()"
         pattern="[A-Za-z'-]{1,30}"
         title="Enter 1-30 characters, Letters, apostrophes, and dashes, and suffix numbers allowed">
       <div id="lastNameError" class="error-message"></div>
@@ -212,7 +218,6 @@ These java program enables user have a review sheet to display user what informs
     <td><input type="text" name="user_id" id="user_id"
                oninput="validateUserId()"
                onblur="validateUserId()"             
-               maxlength="20" required
                maxlength="20" required
                pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,19}$"
                title="User ID must be 5-20 characters, letters and numbers only (no spaces)">
