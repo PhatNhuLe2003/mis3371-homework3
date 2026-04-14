@@ -184,9 +184,38 @@ function validatePhone()
     return true;
 }
 
+function validateSSN()
+{
+  const ssn = document.getElementById("ssn").value.trim();
+  const errorBox = document.getElementById("ssnError");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (ssn === "")
+    {
+      errorBox.innerText = "SSN is required.";
+      return false;
+    }
+
+    if (!/^\d{3}-\d{2}-\d{4}$/.test(ssn))
+    {
+      errorBox.innerText = "Enter a valid SSN (123-45-6789).";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid SSN";
+    return true;
+}
+
 function validateForm()
         {
-                return validateUserId() && validateEmail() && validatePhone() && validatePassword() && validateDOB();
+                return validateUserId() 
+                  && validateEmail()  
+                  && validatePhone()
+                  && validateSSN()
+                  && validatePassword() 
+                  && validateDOB();
         }
 window.onload = function()
 {
