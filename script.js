@@ -405,6 +405,30 @@ function validateSSN()
     return true;
 }
 
+function validateReason()
+{
+  const reason = document.getElementById("reason_for_visit").value.trim();
+  const errorBox = document.getElementById("reasonError");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (reason === "")
+    {
+      errorBox.innerText = "Reason for visit is required.";
+      return false;
+    }
+
+    if (reason.length < 2 || reason.length > 200)
+    {
+      errorBox.innerText = "Reason for visit must be between 2 and 200 characters.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid reason";
+    return true;
+}
+
 function validateForm()
         {
                 return validateFirstName()
@@ -419,7 +443,8 @@ function validateForm()
                   && validatePhone()
                   && validateSSN()
                   && validatePassword() 
-                  && validateDOB();
+                  && validateDOB()
+                  && validateReason();
         }
 
 function showValidate()
