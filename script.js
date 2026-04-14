@@ -170,6 +170,96 @@ function validateLastName()
     errorBox.innerText = "Valid last name";
     return true;
 }
+
+function validateAddress1()
+{
+  const address = document.getElementById("address1").value.trim();
+  const errorBox = document.getElementById("address1Error");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (address === "")
+    {
+      errorBox.innerText = "Address is required.";
+      return false;
+    }
+
+    if (!/^[A-Za-z0-9\s.\-#]{5,30}$/.test(address))
+    {
+      errorBox.innerText = "Address must be 5-30 valid characters.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid address";
+    return true;
+}
+
+function validateCity1()
+{
+  const city = document.getElementById("city1").value.trim();
+  const errorBox = document.getElementById("city1Error");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (city === "")
+    {
+      errorBox.innerText = "City is required.";
+      return false;
+    }
+
+    if (!/^[A-Za-z\s]{2,30}$/.test(city))
+    {
+      errorBox.innerText = "City must be 2-30 letters only.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid city";
+    return true;
+}
+
+function validateState1()
+{
+  const state = document.getElementById("state1").value;
+  const errorBox = document.getElementById("state1Error");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (state === "")
+    {
+      errorBox.innerText = "Please select a state.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid state";
+    return true;
+}
+
+function validateZip1()
+{
+  const zip = document.getElementById("zip1").value.trim();
+  const errorBox = document.getElementById("zip1Error");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+
+    if (zip == "")
+    {
+      errorBox.innerText = "ZIP code is required.";
+      return false;
+    }
+
+    if (!/^\d{5}(-\d{4})?$/.test(zip))
+    {
+      errorBox.innerText = "Enter a valid ZIP code.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid ZIP code";
+    return true;
+}
   
 function validateUserId()
 {
@@ -284,6 +374,10 @@ function validateForm()
                 return validateFirstName()
                   && validateMiddleInitial()
                   && validateLastName()
+                  && validateAddress1()
+                  && validateCity1()
+                  && validateState1()
+                  && validateZip1()
                   && validateUserId()
                   && validateEmail()  
                   && validatePhone()
