@@ -181,6 +181,8 @@ These java program enables user have a review sheet to display user what informs
 </tr>
 <tr>
     <td colspan="2"><input type="email" name="email" id="email" required
+                            oninput="validateEmail()"
+                            onblur="validateEmail()"
                             maxlength="50"
                             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}"
                             title="Enter a valid email (example: name@email.com)">
