@@ -68,7 +68,7 @@ These java program enables user have a review sheet to display user what informs
         oninput="validateLastName()"
         onblur="validateLastName()"
         pattern="[A-Za-z'-]{1,30}"
-        title="Enter 1-30 characters, Letters, apostrophes, and dashes, and suffix numbers allowed">
+        title="Enter 1-30 characters, Letters, apostrophes, and dashes only">
       <div id="lastNameError" class="error-message"></div>
   </td>
 </tr>
@@ -81,6 +81,7 @@ These java program enables user have a review sheet to display user what informs
     <td colspan="3">
         <input type="date" name="dob" id="dob" required
                 onblur="validateDOB()"
+                oninput="validateDOB()"
                 min="1900-01-01"
                 max="2026-12-31"
                 title="Select a valid birth date">
@@ -240,7 +241,8 @@ These java program enables user have a review sheet to display user what informs
     <td colspan="2"><input type="password" name="password" id="password" required
                            pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$!%*?&]).{8,20}$" 
                            title="Password must be 8-20 characters. Must include uppercase, lowercase, number, and special character"                       
-                           oninput="validatePassword()">
+                           oninput="validatePassword()"
+                           onblur="validatePassword()">
     </td>
     <td colspan="2"><input type="password" name="confirm_password" id="confirm_password" required
                            oninput="validatePassword()">
@@ -317,7 +319,8 @@ These java program enables user have a review sheet to display user what informs
     <td colspan="6" class="buttons">
         <input type="reset" value="Restart">
         <input type="button" value="Review" onclick="showReview()">
-        <input type="submit" value="Submit →">
+        <input type="button" value="Validate" onclick="showValidate()">
+        <input type="submit" value="Submit →" style="display:none;">
     </td>
 </tr>
 
