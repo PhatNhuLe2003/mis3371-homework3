@@ -101,7 +101,7 @@ function validateDOB()
         }
 function validateForm()
         {
-                return validatePassword() && validateDOB();
+                return validateUserId() && validatePassword() && validateDOB();
         }
 window.onload = function()
 {
@@ -204,3 +204,40 @@ function updatePainValue()
         const value = document.getElementById("pain").value;
         document.getElementById("painValue").innerText = value;
 }
+
+function validateUserId()
+{
+  const userId = document.getElementById("user_id").value;
+  const errorBox = document.getElementById("userIdError");
+  errorBox.innerText = "";
+  errorBox.style.color = "red";
+  
+    if (/^[0-9]/.test(userId))
+    {
+      errorBox.innerText = "User ID cannot start with a number.";
+      return false;
+    }
+  
+    if (userId.length < 5 || userId.length > 20)
+    {
+      errorBox.innerText = "User ID must be between 5 and 20 characters.";
+      return false;
+    }
+
+    if (/\s/.test(userId))
+    {
+      errorBox.innerText = "User ID cannot contain spaces.";
+      return false;
+    }
+
+    if (!/^[a-zA-Z0-9_-]+$/.test(userId))
+    {
+      errorBox.innerText = "Only letters, numbers, dash (-), and underscore (_) allowed.";
+      return false;
+    }
+
+    errorBox.style.color = "green";
+    errorBox.innerText = "Valid User ID";
+    return true;
+}
+    
