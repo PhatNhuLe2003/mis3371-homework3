@@ -107,19 +107,28 @@ These java program enables user have a review sheet to display user what informs
 </tr>
 <tr>
     <td colspan="3">
-        <input type="text" name="address1" id="address1" maxlength="30" required
+        <input type="text" name="address1" id="address1"
+               oninput="validateAddress1()"
+               onblur="validateAddress1()" 
+               maxlength="30" required
                pattern="[A-Za-z0-9\s\.\-#]{5,30}"
                title="5-30 characters. Letters, numbers, spaces, ., -, # allowed">
         <div id="address1Error" class="error-message"></div>
     </td>
     <td>
-        <input type="text" name="city1" id="city1" maxlength="30" required
+        <input type="text" name="city1" id="city1" 
+               oninput="validateCity1()"
+               onblur="validateCity1()" 
+               maxlength="30" required
                pattern="[A-Za-z\s]{2,30}" 
                title="City must be 2-30 letters only">
         <div id="city1Error" class="error-message"></div>
     </td>
     <td>
-        <select name="state1" id="state1" required>
+        <select name="state1" id="state1"
+                onchange="validateState1()"
+                onblur="validateState1()"
+                required>
             <option value="" selected disabled>Select</option>
                 <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
                 <option>CA</option><option>CO</option><option>CT</option><option>DE</option>
@@ -137,7 +146,10 @@ These java program enables user have a review sheet to display user what informs
         </select>
         <div id="state1Error" class="error-message"></div>
     </td>
-    <td><input type="text" name="zip1" id="zip1" maxlength="10"
+    <td><input type="text" name="zip1" id="zip1" 
+                oninput="validateZip1()"
+                onblur="validateZip1()"
+                maxlength="10"
                 pattern="[0-9]{5}(-[0-9]{4})?"
                 title="Enter 5-digit ZIP or ZIP+4"
                 required>
