@@ -3,7 +3,7 @@ Program name: script.js
 Author: Phat Le
 Date created: 03/20/2026
 Date last edited: 04/15/2026
-Version: 2.0
+Version: 3.0
 Descriptiton: This is my javascript of the codes required to make my Medical website.
               These code adds additional quality of life attributes to the websites such as: Password varification, SSN formatting, DOB Verificationm, and others using Methods that verify user inputs on the fly..
 */
